@@ -23,7 +23,7 @@ obj:SetTexture("Interface\\AddOns\\Serenity\\Textures\\SerenityControl")
 obj:SetWidth(512)
 obj:SetHeight(64)
 
-obj = SerenityControl:CreateTexture(nil, "BACKGROUND")
+obj = SerenityControl:CreateTexture(nil, "OVERLAY")
 obj:SetPoint("BOTTOMRIGHT", SerenityControl, "BOTTOMRIGHT", -6, 10)
 obj:SetTexture("Interface\\AddOns\\Serenity\\Textures\\Control\\Marvin")
 obj:SetWidth(50)
