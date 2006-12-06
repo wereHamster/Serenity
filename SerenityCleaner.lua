@@ -29,7 +29,7 @@ local function clear(obj)
 	obj:Hide()
 end
 
-for _, name in frames do
+for _, name in pairs(frames) do
 	clear(getglobal(name))
 end
 

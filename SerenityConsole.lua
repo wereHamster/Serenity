@@ -1,12 +1,6 @@
 
 local SerenityConsole, obj
 
-local function onEvent()
-end
-
-local function onUpdate()
-end
-
 SerenityConsole = CreateFrame("EditBox", nil, SerenityParent)
 SerenityConsole:SetWidth(500)
 SerenityConsole:SetHeight(40)
@@ -69,7 +63,7 @@ function SerenityConsole_OnShow()
 end
 
 function SerenityConsole_GetLastTellTarget(editBox)
-	for index, value in editBox.lastTell do
+	for index, value in pairs(editBox.lastTell) do
 		if ( value and (strlen(value) > 0) ) then
 			return value;
 		end
@@ -94,7 +88,7 @@ end
 function SerenityConsole_SetLastTellTarget(editBox, target)
 	editBox = SerenityConsole
 	local found = NUM_REMEMBERED_TELLS;
-	for index, value in editBox.lastTell do
+	for index, value in pairs(editBox.lastTell) do
 		if ( strupper(target) == strupper(value) ) then
 			found = index;
 			break;
@@ -256,7 +250,7 @@ function SerenityConsole_OnTabPressed()
 	-- If the string is in the format "/cmd blah", command will be "cmd"
 	local command = gsub(text, "/([^%s]+)%s(.*)", "/%1", 1);
 
-	for index, value in ChatTypeInfo do
+	for index, value in pairs(ChatTypeInfo) do
 		local i = 1;
 		local cmdString = TEXT(getglobal("SLASH_"..index..i));
 		while ( cmdString ) do
@@ -273,7 +267,7 @@ function SerenityConsole_OnTabPressed()
 		end
 	end
 
-	for index, value in SlashCmdList do
+	for index, value in pairs(SlashCmdList) do
 		local i = 1;
 		local cmdString = TEXT(getglobal("SLASH_"..index..i));
 		while ( cmdString ) do
@@ -366,7 +360,7 @@ function SerenityConsole_ParseText(editBox, send)
 			return;
 		end
 	else
-		for index, value in ChatTypeInfo do
+		for index, value in pairs(ChatTypeInfo) do
 			local i = 1;
 			local cmdString = TEXT(getglobal("SLASH_"..index..i));
 			while ( cmdString ) do
@@ -407,7 +401,7 @@ function SerenityConsole_ParseText(editBox, send)
 	end
 
 
-	for index, value in SlashCmdList do
+	for index, value in pairs(SlashCmdList) do
 		local i = 1;
 		local cmdString = TEXT(getglobal("SLASH_"..index..i));
 		while ( cmdString ) do
